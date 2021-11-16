@@ -89,13 +89,12 @@ app_license = "GPL v3"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+    "POS Invoice": {
+        "after_insert": "erpnext.regional.saudi_arabia.utils.create_qr_code",
+        "on_trash": "erpnext.regional.saudi_arabia.utils.delete_qr_code_file"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -173,3 +172,21 @@ user_data_fields = [
 # 	"ksa_pos.auth.validate"
 # ]
 
+fixtures = [
+    {
+        'dt': 'Custom Field',
+        'filters': {
+            'name': ['in', [
+                'POS Invoice-qr_code'
+            ]]
+        }
+    },
+    {
+        'dt': 'Print Format',
+        'filters': {
+            'name': ['in', [
+                'POS w/ QR'
+            ]]
+        }
+    }
+]
