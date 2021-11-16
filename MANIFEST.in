@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ksa_pos *.css
+recursive-include ksa_pos *.csv
+recursive-include ksa_pos *.html
+recursive-include ksa_pos *.ico
+recursive-include ksa_pos *.js
+recursive-include ksa_pos *.json
+recursive-include ksa_pos *.md
+recursive-include ksa_pos *.png
+recursive-include ksa_pos *.py
+recursive-include ksa_pos *.svg
+recursive-include ksa_pos *.txt
+recursive-exclude ksa_pos *.pyc
